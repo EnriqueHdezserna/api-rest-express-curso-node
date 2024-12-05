@@ -13,7 +13,7 @@ ruta.get('/', (req, res) => {
   res.send(usuarios);
 });
 
-ruta.get('/', (req, res) => {
+ruta.get('/:id', (req, res) => {
   let usuario = existeUsuario(req.params.id);
 
   if (!usuario) {
@@ -47,7 +47,7 @@ ruta.post('/', (req, res) => {
   }
 });
 
-ruta.put('/', (req, res) => {
+ruta.put('/:id', (req, res) => {
 
   let usuario = existeUsuario(req.params.id);
   if (!usuario) {
@@ -68,7 +68,7 @@ ruta.put('/', (req, res) => {
   res.send(usuario);
 });
 
-ruta.delete('/', (req, res) => {
+ruta.delete('/:id', (req, res) => {
   let usuario = existeUsuario(req.params.id);
   if (!usuario) {
     return res.status(404).send('Usuario no encontrado');
